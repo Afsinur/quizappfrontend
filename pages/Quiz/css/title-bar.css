@@ -1,0 +1,19 @@
+.title-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+.title-bar .app-name {
+  font-size: var(--mid-font);
+  font-weight: 400;
+}
+.title-bar .time-div {
+  font-size: var(--mid-font);
+  font-weight: 400;
+  background-color: #f44336;
+  color: azure;
+  padding: 8px;
+  border-radius: 10px;
+}/*# sourceMappingURL=title-bar.css.map */

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="title" content="A Simple Quiz App by TC-SEC-B" />
+    <meta
+      name="description"
+      content="This is a simple quiz app build by Section-B students of Tejgaon College. We've created this project for our science fair 2023."
+    />
+    <meta
+      name="keywords"
+      content="Quiz, Simple Quiz, Quiz App, A Quiz App by Tejgaon College Section-B, Farhan & Ibrahim"
+    />
+    <meta name="author" content="Farhan, Ibrahim" />
+    <meta content="tc.secb@gmail.com" name="email" />
+    <meta content="Bangladesh" name="geo.placename" />
+    <meta content="bn_BD" property="og:locale:alternate" />
+    <meta content="bn_BD" property="og:locale" />
+    <meta name="theme-color" content="#0c43eb" />
+    <meta name="robots" content="index,follow" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="language" content="Bangla" />
+    <meta name="revisit-after" content="6 days" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <title>Dashboard - A Simple Quiz App by TC-SEC-B</title>
+    <!-- Hosted Plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!-- Font Awesome 4.7.0 -->
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>-->
+    <link
+      href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@44659d9/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="app.css" rel="stylesheet" />
+    <link rel="../icon" type="image/x-icon" href="#" />
+    <link rel="manifest" href="manifest.json" />
+
+    <!--script-->
+    <script src="./pages/dashboard/get_permit.js"></script>
+    <script type="module" src="./pages/dashboard/dashboard.js" defer></script>
+    <script>
+      alert("Please wait page is loading..");
+    </script>
+  </head>
+
+  <body class="app-dashboard-page" style="display: none">
+    <header class="header-section">
+      <div class="left">
+        <h1 class="app-welcome-msg">স্বাগতম</h1>
+        <h5 class="user-name">
+          <i class="fa-sharp fa-solid fa-circle-small"></i>
+          <span class="db-user-name"></span>
+        </h5>
+      </div>
+
+      <span class="pppp">
+        <div class="right">
+          <span class="profile-pic-btn">
+            <img class="db-img" src="" width="50px" />
+          </span>
+        </div>
+
+        <div class="right">
+          <span class="dark-mode-btn js-toggle-theme mi-ripple mi-ripple-dark">
+            <span class="light"><i class="fa-light fa-lightbulb"></i></span
+            ><span class="dark"
+              ><i class="fa-light fa-lightbulb-slash"></i
+            ></span>
+          </span>
+        </div>
+      </span>
+
+      <br /><br /><br /><br /><br />
+    </header>
+
+    <main class="quiz-main-dashboard">
+      <div class="quiz-dashboard-personal-row">
+        <h2>আপনার ড্যাশবোর্ড</h2>
+
+        <div class="quiz-dashboard-personal-column">
+          <div class="quiz-dashboard-personal-card br1">
+            <i class="fa-regular fa-star"></i>
+            <p>পয়েন্ট</p>
+            <h3 class="user-page-user-points">১৭</h3>
+          </div>
+        </div>
+
+        <div class="quiz-dashboard-personal-column">
+          <div class="quiz-dashboard-personal-card br1">
+            <i class="fa-regular fa-ranking-star"></i>
+            <p>র‌্যাংকিং</p>
+            <h3 class="user-page-user-rank">৩৬</h3>
+          </div>
+        </div>
+
+        <div class="quiz-dashboard-personal-column">
+          <div class="quiz-dashboard-personal-card">
+            <i class="fa-regular fa-badge-check"></i>
+            <p>ব্যাজ</p>
+            <h3 class="user-page-user-badge">গোল্ড</h3>
+          </div>
+        </div>
+      </div>
+
+      <br /><br />
+
+      <div class="quiz-dashboard-nav-row">
+        <div class="quiz-dashboard-nav-column qz">
+          <div
+            class="quiz-dashboard-nav-card play-quiz mi-ripple mi-ripple-dark mi-ripple-rise"
+          >
+            <img src="img/svg/quiz.svg" width="60%" alt="Play Quiz" />
+            <h4>কুইজ</h4>
+          </div>
+        </div>
+
+        <div class="quiz-dashboard-nav-column lb">
+          <div
+            class="quiz-dashboard-nav-card leaderboard mi-ripple mi-ripple-dark mi-ripple-rise"
+          >
+            <img src="img/svg/trophy.svg" width="60%" alt="Quiz Leaderboard" />
+            <h4>লিডারবোর্ড</h4>
+          </div>
+        </div>
+
+        <div class="quiz-dashboard-nav-column">
+          <div
+            class="quiz-dashboard-nav-card learning mi-ripple mi-ripple-dark mi-ripple-rise"
+          >
+            <img src="img/svg/books.svg" width="60%" alt="Learning Library" />
+            <h4>লাইব্রেরী</h4>
+          </div>
+        </div>
+
+        <div class="quiz-dashboard-nav-column">
+          <div
+            class="quiz-dashboard-nav-card learning mi-ripple mi-ripple-dark mi-ripple-rise"
+          >
+            <img src="img/svg/money.svg" width="60%" alt="Learning Library" />
+            <h4>রিওয়ার্ড</h4>
+          </div>
+        </div>
+
+        <div class="quiz-dashboard-nav-column">
+          <div
+            class="quiz-dashboard-nav-card learning mi-ripple mi-ripple-dark mi-ripple-rise"
+          >
+            <img src="img/svg/faq2.svg" width="60%" alt="Learning Library" />
+            <h4>প্রশ্নোত্তর</h4>
+          </div>
+        </div>
+
+        <div class="quiz-dashboard-nav-column">
+          <div
+            class="quiz-dashboard-nav-card learning mi-ripple mi-ripple-dark mi-ripple-rise"
+          >
+            <img src="img/svg/team.svg" width="60%" alt="Learning Library" />
+            <h4>টিম</h4>
+          </div>
+        </div>
+
+        <div class="quiz-dashboard-nav-column">
+          <div
+            class="quiz-dashboard-nav-card learning mi-ripple mi-ripple-dark mi-ripple-rise"
+          >
+            <img src="img/svg/email.svg" width="60%" alt="Learning Library" />
+            <h4>যোগাযোগ</h4>
+          </div>
+        </div>
+
+        <div class="quiz-dashboard-nav-column">
+          <div
+            class="quiz-dashboard-nav-card learning mi-ripple mi-ripple-dark mi-ripple-rise"
+          >
+            <img
+              src="img/svg/changelog.svg"
+              width="60%"
+              alt="Learning Library"
+            />
+            <h4>চেইঞ্জলগ</h4>
+          </div>
+        </div>
+
+        <div class="quiz-dashboard-nav-column">
+          <div
+            class="quiz-dashboard-nav-card learning mi-ripple mi-ripple-dark mi-ripple-rise"
+          >
+            <img src="img/svg/info.svg" width="60%" alt="About Ourself" />
+            <h4>অন্যান্য</h4>
+          </div>
+        </div>
+      </div>
+
+      <!---------- Hide This Area -------------
+<section class="quiz-dashboard-leaderboard-section">
+<div class="leaderboard-nav">
+<span class="quiz-dashboard-leaderboard-title mi-left"> লিডারবোর্ড </span>
+<a href="leaderboard.html"><span class="quiz-dashboard-leaderboard-view-all mi-right"> সকল <i class="fa-light fa-chevron-right"></i></span></a>
+</div>
+<section>
+
+<div class="qd-flex-container header">
+  <div class="sla">SL</div>
+  <div class="namea">নাম</div>
+  <div class="pointa">পয়েন্ট</div>
+</div>
+
+<div class="qd-flex-container">
+  <div class="quiz-dashboard-leaderboard-section-user-sl"></div>
+  <div class="quiz-dashboard-leaderboard-section-user-name">
+  <p class="name">মোঃ ইব্রাহিম</p>
+  <p class="college">তেজগাও কলেজ </p></div>
+  <div class="quiz-dashboard-leaderboard-section-user-point">১৯</div>
+</div>
+
+<div class="qd-flex-container">
+  <div class="quiz-dashboard-leaderboard-section-user-sl"></div>
+  <div class="quiz-dashboard-leaderboard-section-user-name">
+  <p class="name">ফারহান সাদিক</p>
+  <p class="college">তেজগাও কলেজ </p></div>
+  <div class="quiz-dashboard-leaderboard-section-user-point">১৮</div>
+</div>
+
+<div class="qd-flex-container">
+  <div class="quiz-dashboard-leaderboard-section-user-sl"></div>
+  <div class="quiz-dashboard-leaderboard-section-user-name">
+  <p class="name">রোহান শেখ</p>
+  <p class="college"> দনিয়া কলেজ </p></div>
+  <div class="quiz-dashboard-leaderboard-section-user-point">১৫</div>
+</div>
+
+<div class="qd-flex-container">
+  <div class="quiz-dashboard-leaderboard-section-user-sl"></div>
+  <div class="quiz-dashboard-leaderboard-section-user-name">
+  <p class="name"> সুমাইয়া আক্তার </p>
+  <p class="college"> ঢাকা সিটি কলেজ কলেজ </p></div>
+  <div class="quiz-dashboard-leaderboard-section-user-point">১৩</div>
+</div>
+
+</section>
+</section>
+---------------->
+
+      <div class="quiz-db-faq-div">
+        <img src="img/faq.jpg" width="65%" />
+        <h3>
+          <i class="fa-light fa-seal-question"></i>&nbsp; আপনার কোনো প্রশ্ন আছে
+          ?
+        </h3>
+        <a href="faq.html"
+          ><button
+            class="quiz-db-faq-btn mi-box-shadow-material mi-ripple mi-ripple-dark mi-ripple-rise"
+          >
+            সকল উত্তর
+          </button></a
+        >
+      </div>
+      <br />
+    </main>
+
+    <div id="app-bottom-navigation-bar"></div>
+    <br /><br /><br /><br />
+
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>

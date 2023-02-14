@@ -1,0 +1,29 @@
+.play-div {
+  margin-bottom: 15px;
+  padding: 0 25px;
+
+  .qsn-div {
+    font-size: var(--big-font);
+    margin-bottom: 15px;
+  }
+
+  .options-ul {
+    padding-left: 25px;
+
+    li {
+      cursor: pointer;
+
+      border: 2px solid rgb(116, 213, 255); //active rgb(9, 136, 247);
+      border-radius: 10px;
+
+      margin: 10px 0;
+      padding: 15px;
+
+      list-style: lower-roman;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 0 15px;
+  }
+}

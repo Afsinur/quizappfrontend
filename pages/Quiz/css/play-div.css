@@ -1,0 +1,24 @@
+.play-div {
+  margin-bottom: 15px;
+  padding: 0 25px;
+}
+.play-div .qsn-div {
+  font-size: var(--big-font);
+  margin-bottom: 15px;
+}
+.play-div .options-ul {
+  padding-left: 25px;
+}
+.play-div .options-ul li {
+  cursor: pointer;
+  border: 2px solid rgb(116, 213, 255);
+  border-radius: 10px;
+  margin: 10px 0;
+  padding: 15px;
+  list-style: lower-roman;
+}
+@media screen and (max-width: 768px) {
+  .play-div {
+    padding: 0 15px;
+  }
+}/*# sourceMappingURL=play-div.css.map */

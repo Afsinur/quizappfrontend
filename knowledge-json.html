@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="title" content="A Simple Quiz App by TC-SEC-B"/>
+  <meta name="description" content="This is a simple quiz app build by Section-B students of Tejgaon College. We've created this project for our science fair 2023."/>
+  <meta name="keywords" content="Quiz, Simple Quiz, Quiz App, A Quiz App by Tejgaon College Section-B, Farhan & Ibrahim"/>
+  <meta name="author" content="Farhan, Ibrahim"/>
+  <meta content='tc.secb@gmail.com' name='email'/>
+  <meta content='Bangladesh' name='geo.placename'/>
+  <meta content='bn_BD' property='og:locale:alternate'/>
+  <meta content='bn_BD' property='og:locale'/>
+  <meta name="theme-color" content="#0c43eb">
+  <meta name="robots" content="index,follow"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="language" content="Bangla"/>
+  <meta name="revisit-after" content="6 days"/>
+  <meta content='IE=edge' http-equiv='X-UA-Compatible'/>
+  <title>Knowledge Panel - A Simple Quiz App by TC-SEC-B</title>
+  <!-- Hosted Plugins -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <!-- Font Awesome 4.7.0 -->
+  <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>-->
+  <link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@44659d9/css/all.min.css" rel="stylesheet"/>
+  <link href="app.css" rel="stylesheet"/>
+  <link rel="../icon" type="image/x-icon" href="#">
+  <link rel="manifest" href="manifest.json" />
+</head>
+
+
+
+<style type="text/css">
+  html {
+  scroll-behavior: smooth;
+}
+</style>
+
+
+
+
+
+
+
+<body class="app-knowledge-page">
+
+<header class="header-section-knowledge-page">
+<span class="pppp">
+<div class="right" style="display: none; visibility: hidden;">
+<span class="dark-mode-btn js-toggle-theme mi-ripple mi-ripple-dark">
+<span class="light"><i class="fa-duotone fa-sun"></i></span><span class="dark"><i class="fa-duotone fa-moon"></i></span>
+</span>
+</div>
+</span>
+</header>
+
+<section class="knowledge-panel-page-header">
+  <div class="centered">
+<div class="knowledge-page-hero-text">
+<h1>
+আগে শেখো, পরে কুইজ খেলো
+</h1>
+<a href="#knowledge-panel-main-section"><button class="start-learning-btn mi-ripple mi-ripple-dark"> শুরু করো </button></a>
+</div>
+  </div>
+</section>
+
+
+
+
+
+
+<input id="knowledge-panel-filter-info-search" class="mi-input" type="text" style="width: 88%;" placeholder="যেকোনো কন্টেন্ট সার্চ করুন...">
+<br>
+<p class="total-knowledge-panel-num-div" style="color: var(--text-dark); text-align: center;"> মোট তথ্য প্যানেলঃ <span id="total-knowledge-panel-num"></span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+  
+
+.knowledge-box-container{
+width: 25%;
+float: left;
+box-sizing: border-box;
+}
+
+
+
+.knowledge-box-container: after{
+display: table;
+clear: both;
+content: "";
+}
+
+
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+<main class="knowledge-panel-main-section" id="knowledge-panel-main-section">
+ 
+
+
+
+
+
+
+
+
+<div id="llb"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  function mycallback(json) {
+    for (var i = 0; i < json.feed.entry.length; i++) {
+      for (var j = 0; j < json.feed.entry[i].link.length; j++) {
+        if (json.feed.entry[i].link[j].rel == 'alternate') {
+          var postUrl = json.feed.entry[i].link[j].href;
+          break;
+        }
+      }
+      
+      
+      
+      
+     // var contents = json.feed.entry[i].content.$t;
+       
+       
+       var contents = json.feed.entry[i].content.$t;
+      
+      
+     // var img = json.feed.entry[i].media$thumbnail.url;
+      
+      
+      
+      
+            
+      var postDate = json.feed.entry[i].published.$t;
+      
+      var mc = (new Date(postDate)).toLocaleDateString('bn-BD');
+      
+      
+      
+      
+      
+      
+      var postTitle = json.feed.entry[i].title.$t;
+      // var postSummary = json.feed.entry[i].summary.$t;
+      var item = '<div class="knowledge-box-container"><div class="knowledge-panel"><h3 class="knowledge-panel-header">' + postTitle + '</h3><p> ' + mc + ' </p><p> ' + contents + '  </p></div></div>';
+      document.write(item);
+    }
+  }
+</script>
+<script src="https://www.merobloggingtips.com/feeds/posts/default?max-results=999999&alt=json-in-script&callback=mycallback"></script>
+
+
+
+
+
+
+
+
+  
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<p style="color: var(--text-dark); margin: 50px 20px;"> এই ওয়েবসাইট এর সকল ডাটা প্রতিনিয়ত আপডেট হয়ে থাকে।</p>
+</main>
+
+
+
+<script type="text/javascript">
+!function(e){e.fn.readall=function(s){const t=e.extend({showheight:96,showrows:null,animationspeed:200,btnTextShowmore:"Read more",btnTextShowless:"Read less",btnClassShowmore:"readall-button mi-box-shadow-material",btnClassShowless:"readall-button mi-box-shadow-material"},s);return e(this).each(function(){const s=e(this),a=function(){return s[0].scrollHeight};if(null!=t.showrows){const h=Math.floor(1.5*parseFloat(s.css("font-size")));t.showheight=h*t.showrows}
+s.addClass("readall").css({overflow:"hidden"});const o=function(h){const o=s.parent().find("button."+t.btnClassShowmore.replace(/\s+/g,".")+", button."+t.btnClassShowless.replace(/\s+/g,"."));a()>t.showheight+e(o).outerHeight()?e(o).is(":visible")&&null!=h||(s.css({height:t.showheight+"px","max-height":t.showheight+"px"}),e(o).text(t.btnTextShowmore),s.addClass("readall-hide"),e(o).removeClass(t.btnClassShowless).addClass(t.btnClassShowmore),e(o).show()):(e(o).is(":visible")||null==h)&&(s.css({height:"","max-height":""}),s.removeClass("readall-hide"),e(o).hide())};if(s.parent().not("readall-wrapper")){s.wrap(e("<div />").addClass("readall-wrapper"));const l=e("<button />").addClass(t.btnClassShowmore).text(t.btnTextShowmore).click(function(h){h.preventDefault(),s.hasClass("readall-hide")?s.css({height:t.showheight+"px","max-height":""}).animate({height:a()+"px"},t.animationspeed,function(){s.css({height:""}),e(l).text(t.btnTextShowless)}):s.animate({height:t.showheight+"px"},t.animationspeed,function(){s.css({"max-height":t.showheight+"px"}),e(l).text(t.btnTextShowmore)}),s.toggleClass("readall-hide"),e(this).toggleClass(t.btnClassShowmore).toggleClass(t.btnClassShowless)});s.after(l),e(window).bind("orientationchange resize",o),o(null)}}),this}}(jQuery);$(document).ready(function(){$('.knowledge-panel').readall({showheight:200,showrows:null,animationspeed:200,btnTextShowmore:'Read more',btnTextShowless:'Read less',btnClassShowmore:'readall-button mi-box-shadow-material',btnClassShowless:'readall-button mi-box-shadow-material'})})  
+
+$(document).ready(function(){$("#knowledge-panel-filter-info-search").on("keyup",function(){var e=$(this).val().toLowerCase();$("#knowledge-panel-main-section").filter(function(){$(this).toggle($(this).text().toLowerCase().indexOf(e)>-1)})})});let ttl_knowledge_panel=document.querySelectorAll(".knowledge-panel");document.getElementById("total-knowledge-panel-num").innerHTML=ttl_knowledge_panel.length.toLocaleString("bn-BD"),$(window).scroll(function(){$(".knowledge-page-hero-text").css("opacity",1-$(window).scrollTop()/250)});
+</script>
+
+
+
+
+
+<br><br>
+<div id="app-bottom-navigation-bar"></div>
+<br><br><br><br>
+<script type="text/javascript" src="app.js"></script>
+</body>
+</html>

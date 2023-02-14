@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="title" content="A Simple Quiz App by TC-SEC-B" />
+    <meta
+      name="description"
+      content="This is a simple quiz app build by Section-B students of Tejgaon College. We've created this project for our science fair 2023."
+    />
+    <meta
+      name="keywords"
+      content="Quiz, Simple Quiz, Quiz App, A Quiz App by Tejgaon College Section-B, Farhan & Ibrahim"
+    />
+    <meta name="author" content="Farhan, Ibrahim" />
+    <meta content="tc.secb@gmail.com" name="email" />
+    <meta content="Bangladesh" name="geo.placename" />
+    <meta content="bn_BD" property="og:locale:alternate" />
+    <meta content="bn_BD" property="og:locale" />
+    <meta name="theme-color" content="#0c43eb" />
+    <meta name="robots" content="index,follow" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="language" content="Bangla" />
+    <meta name="revisit-after" content="6 days" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <title>Signup - A Simple Quiz App by TC-SEC-B</title>
+    <!-- Hosted Plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!-- Font Awesome 4.7.0 -->
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>-->
+    <link
+      href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@44659d9/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="app.css" rel="stylesheet" />
+    <link rel="../icon" type="image/x-icon" href="#" />
+    <link rel="manifest" href="manifest.json" />
+
+    <!--scripts-->
+    <script type="module" src="./pages/signup/signup.js" defer></script>
+  </head>
+
+  <body class="app-signup-page">
+    <main>
+      <br />
+      <div class="login-form-box">
+        <h1 class="signin-header">রেজিস্ট্রেশন ফর্ম</h1>
+        <p class="signin-noaccount-text">
+          একাউন্ট আছে ? <a href="login-page.html">লগইন করুন</a>
+        </p>
+
+        <form id="signup-form" class="login-form">
+          <div class="mi-form-floating-two">
+            <input
+              placeholder="ore"
+              class="mi-input"
+              type="text"
+              name="fullname"
+              required
+              spellcheck="false"
+            />
+            <label><i class="fa-light fa-user"></i> পুরো নাম</label>
+          </div>
+
+          <br />
+
+          <div class="mi-form-floating-two">
+            <input
+              placeholder="ore"
+              class="mi-input"
+              type="text"
+              name="batchname"
+              required
+              spellcheck="false"
+            />
+            <label
+              ><i class="fa-light fa-building-user"></i> ডিপার্টমেন্ট ও
+              ব্যাচ</label
+            >
+          </div>
+
+          <br />
+
+          <div class="mi-form-floating-two">
+            <input
+              placeholder="ore"
+              class="mi-input"
+              type="text"
+              name="section_and_roll"
+              required
+              spellcheck="false"
+            />
+            <label><i class="fa-light fa-pen-to-square"></i> সেকশন ও রোল</label>
+          </div>
+
+          <br />
+
+          <div class="mi-form-floating-two input_container">
+            <p style="color: #666; margin-left: 25px; margin-bottom: 8px">
+              Select Your Image
+            </p>
+
+            <input
+              placeholder="ore"
+              class="mi-input"
+              type="file"
+              name="img_file"
+              required
+              spellcheck="false"
+            />
+          </div>
+
+          <br />
+
+          <div class="mi-form-floating-two">
+            <input
+              placeholder="ore"
+              class="mi-input"
+              type="number"
+              name="mobile"
+              required
+              spellcheck="false"
+            />
+            <label><i class="fa-light fa-phone"></i> মোবাইল নং</label>
+          </div>
+
+          <br />
+
+          <div class="mi-form-floating-two">
+            <input
+              placeholder="ore"
+              class="mi-input"
+              type="email"
+              name="email"
+              required
+              spellcheck="false"
+            />
+            <label><i class="fa-light fa-envelope"></i> ই-মেইল এড্রেস</label>
+          </div>
+
+          <br />
+
+          <div class="mi-form-floating-two">
+            <input
+              placeholder="ore"
+              class="mi-input"
+              id="password"
+              type="password"
+              name="password"
+              required
+              spellcheck="false"
+            />
+            <label><i class="fa-light fa-lock-keyhole"></i> পাসওয়ার্ড</label>
+            <span class="password-showhide">
+              <span class="show-password"
+                ><i class="fa-light fa-eye-slash"></i
+              ></span>
+              <span class="hide-password"><i class="fa-light fa-eye"></i></span>
+            </span>
+          </div>
+
+          <br />
+
+          <label class="mi-material-checkbox">
+            <input type="checkbox" required name="condition_accepted" />
+            <span> আমি উপরোক্ত বিষয়াবলী সত্য বলে স্বীকার করে নিচ্ছি </span>
+          </label>
+
+          <br /><br />
+
+          <button
+            class="login-form-submit-btn mi-ripple mi-ripple-light mi-ripple-rise mi-box-shadow-material"
+            type="submit"
+          >
+            রেজিস্ট্রেশন করুন <i class="fa-light fa-arrow-right-to-bracket"></i>
+          </button>
+
+          <div class="striped">
+            <span class="striped-line"></span>
+            <span class="striped-text">অথবা</span>
+            <span class="striped-line"></span>
+          </div>
+        </form>
+
+        <div class="others-login-btn-div">
+          <button
+            class="others-login-btn google mi-ripple mi-ripple-dark mi-ripple-rise mi-box-shadow-material"
+          >
+            <i class="fa-brands fa-google"></i>
+          </button>
+          <button
+            class="others-login-btn facebook mi-ripple mi-ripple-dark mi-ripple-rise mi-box-shadow-material"
+          >
+            <i class="fa-brands fa-facebook"></i>
+          </button>
+          <button
+            class="others-login-btn apple mi-ripple mi-ripple-dark mi-ripple-rise mi-box-shadow-material"
+          >
+            <i class="fa-brands fa-apple"></i>
+          </button>
+        </div>
+      </div>
+    </main>
+    <br />
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>

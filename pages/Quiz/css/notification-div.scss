@@ -1,0 +1,31 @@
+.notification-div {
+  p:not(p:nth-child(2)) {
+    font-size: var(--extra-big-font);
+    text-align: center;
+    padding: 30px 0;
+    margin: 30px 0;
+
+    span {
+      color: rgb(29, 147, 249);
+    }
+
+    @media screen and (max-width: 768px) {
+      padding: 20px 0;
+      margin: 20px 0;
+    }
+  }
+
+  p:nth-child(2) {
+    font-size: 0.8rem;
+    text-align: center;
+    margin-bottom: 30px;
+
+    .if-updating {
+      color: #4169e1;
+    }
+
+    .update-completed {
+      color: #4caf50;
+    }
+  }
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="title" content="A Simple Quiz App by TC-SEC-B" />
+    <meta
+      name="description"
+      content="This is a simple quiz app build by Section-B students of Tejgaon College. We've created this project for our science fair 2023."
+    />
+    <meta
+      name="keywords"
+      content="Quiz, Simple Quiz, Quiz App, A Quiz App by Tejgaon College Section-B, Farhan & Ibrahim"
+    />
+    <meta name="author" content="Farhan, Ibrahim" />
+    <meta content="tc.secb@gmail.com" name="email" />
+    <meta content="Bangladesh" name="geo.placename" />
+    <meta content="bn_BD" property="og:locale:alternate" />
+    <meta content="bn_BD" property="og:locale" />
+    <meta name="theme-color" content="#0c43eb" />
+    <meta name="robots" content="index,follow" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="language" content="Bangla" />
+    <meta name="revisit-after" content="6 days" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <title>Profile - A Simple Quiz App by TC-SEC-B</title>
+    <!-- Hosted Plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!-- Font Awesome 4.7.0 -->
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>-->
+    <link
+      href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@44659d9/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="app.css" rel="stylesheet" />
+    <link rel="../icon" type="image/x-icon" href="#" />
+    <link rel="manifest" href="manifest.json" />
+
+    <!--script-->
+    <script type="module" src="./pages/profile/profile.js" defer></script>
+    <script>
+      alert("Please wait page is loading..");
+    </script>
+  </head>
+
+  <body class="app-profile-page" style="display: none">
+    <header class="header-section-profile-page">
+      <div class="left">
+        <h1 class="app-welcome-msg">
+          <button
+            class="back-button-inside mi-ripple mi-ripple-dark"
+            onclick="history.back()"
+            style="font-size: 16px"
+          >
+            <i class="fa-regular fa-chevron-left"></i> Back
+          </button>
+        </h1>
+      </div>
+      <span class="pppp">
+        <div class="right" style="display: none; visibility: hidden">
+          <span class="dark-mode-btn js-toggle-theme mi-ripple mi-ripple-dark">
+            <span class="light"><i class="fa-duotone fa-sun"></i></span
+            ><span class="dark"><i class="fa-duotone fa-moon"></i></span>
+          </span>
+        </div>
+      </span>
+    </header>
+
+    <div class="user-profile-row mi-box-shadow-3 mi-ripple mi-ripple-dark">
+      <div class="user-profile-column">
+        <div class="user-profile-card">
+          <img
+            class="user-profile-box-img"
+            src="https://img.freepik.com/free-photo/portrait-asian-man-freelancer-working-home-sitting-desk-dining-table-living-room_554837-757.jpg"
+          />
+        </div>
+      </div>
+
+      <div class="user-profile-column2">
+        <div class="user-profile-card">
+          <p class="user-profile-box-name">মোঃ রাশেদুল হাসান শান্ত (সাকলাইন)</p>
+          <p class="user-profile-box-clg">সরকারী বিজ্ঞান কলেজ, ঢাকা</p>
+        </div>
+      </div>
+    </div>
+
+    <section class="three-class-section mi-ripple mi-ripple-dark">
+      <div class="three-class" style="border-right: 1px solid #dcdee8">
+        <h2 class="user-page-user-points">17</h2>
+        <p class="user-page-user-text">Points</p>
+      </div>
+      <div class="three-class" style="border-right: 1px solid #dcdee8">
+        <h2 class="user-page-user-rank">49</h2>
+        <p class="user-page-user-text">Rank</p>
+      </div>
+      <div class="three-class">
+        <h2 class="user-page-user-badge">Gold</h2>
+        <p class="user-page-user-text">Badge</p>
+      </div>
+    </section>
+
+    <section class="profile-page-single-infos-section">
+      <h3>
+        ব্যক্তিগত তথ্য
+        <button class="mi-ripple mi-ripple-dark">
+          <i class="fa-regular fa-pen-to-square"></i>
+        </button>
+      </h3>
+
+      <br />
+      <div class="hrs"></div>
+
+      <div class="profile-page-single-infos">
+        <span><i class="fa-regular fa-user"></i> নামঃ</span>
+        <h4 class="db_name">মোঃ রাশেদুল হাসান শান্ত (সাকলাইন)</h4>
+      </div>
+
+      <div class="profile-page-single-infos" style="display: none">
+        <span><i class="fa-regular fa-building-columns"></i> কলেজঃ</span>
+        <h4 class="db_clg_name">সরকারী বিজ্ঞান কলেজ, ঢাকা</h4>
+      </div>
+
+      <div class="profile-page-single-infos">
+        <span
+          ><i class="fa-regular fa-clipboard"></i> ডিপার্ট্মেন্ট ও সেকশনঃ</span
+        >
+        <h4 class="db_btc_name">বায়োকেমিস্ট্রি, এ সেকশন</h4>
+      </div>
+
+      <div class="profile-page-single-infos">
+        <span><i class="fa-regular fa-calendar-days"></i> ইয়ার ও রোলঃ</span>
+        <h4 class="db_sec_roll">৩য় বর্ষ, রোল ৫৮</h4>
+      </div>
+
+      <div class="profile-page-single-infos">
+        <span><i class="fa-regular fa-lock"></i> কুইজ জয়েন ডেটঃ</span>
+        <h4 class="db_joined">05-02-2022</h4>
+      </div>
+
+      <div class="profile-page-single-infos">
+        <span><i class="fa-regular fa-phone"></i> মোবাইলঃ</span>
+        <h4 class="db_mobile">০১৮৭৫৪৪৮৮৬৫</h4>
+      </div>
+
+      <div class="profile-page-single-infos">
+        <span><i class="fa-regular fa-envelope"></i> ইমেইলঃ</span>
+        <h4 class="db_email">rashedul.islam@yahoo.com</h4>
+      </div>
+
+      <div class="profile-page-single-infos">
+        <span><i class="fa-regular fa-lock"></i> পাসওয়ার্ডঃ</span>
+        <h4 class="db_password">************</h4>
+      </div>
+    </section>
+
+    <br /><br />
+    <div id="app-bottom-navigation-bar"></div>
+    <br /><br /><br /><br />
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>

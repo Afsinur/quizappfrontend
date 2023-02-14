@@ -1,0 +1,18 @@
+.footer-bar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 25px;
+}
+.footer-bar button {
+  margin: 2px;
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .footer-bar {
+    padding: 0 15px;
+  }
+}/*# sourceMappingURL=footer-bar.css.map */
