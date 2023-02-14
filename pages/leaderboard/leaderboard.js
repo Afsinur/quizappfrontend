@@ -15,6 +15,8 @@ let leaderboard_top_ranker_time_span = qs_a(
   `.leaderboard-top-ranker-time > span`
 )[0];
 
+let total_perticipant_num = qs_a("#total-perticipant-num")[0];
+
 //
 function template_leaders_list(src, full_name, deprt_name, point, time) {
   return `
@@ -67,6 +69,7 @@ function setup_data_on_page(data, data1) {
         return b.data.total_correct_ans - a.data.total_correct_ans;
       });
 
+    total_perticipant_num.innerHTML = sort_point.length;
     sort_point.forEach(({ data, user_data }, i) => {
       if (i > 0) {
         leaderboard_list.innerHTML += template_leaders_list(
