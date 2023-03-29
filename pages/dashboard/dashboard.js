@@ -1,12 +1,11 @@
 let db_uri = "https://quizappapi.onrender.com/api";
 let localStorage_email_key = "ibrahim_quiz_user_email";
 
-import selectors from "../Quiz/js/selectors.js";
+import selectors from "../quiz/js/selectors.js";
 let { qs_a, css, on } = selectors;
 //
 let db_user_name = qs_a(".db-user-name")[0];
 let db_img = qs_a(".db-img")[0];
-let quiz_dashboard_personal_row = qs_a(".quiz-dashboard-personal-row")[0];
 
 let user_page_user_rank = qs_a(".user-page-user-rank")[0];
 let user_page_user_points = qs_a(".user-page-user-points")[0];
@@ -15,12 +14,14 @@ let user_page_user_badge = qs_a(".user-page-user-badge")[0];
 let quiz_dashboard_nav_card_qz = qs_a(".qz")[0];
 let quiz_dashboard_nav_card_lb = qs_a(".lb")[0];
 
+let resetLocationCounter = 0;
+
 //
 function get_percent(got, total) {
   return got * (100 / total);
 }
+
 function set_localStorage_email_key_and_value() {
-  let url_string = window.location.href;
   let url = new URL(url_string);
   let email = url.searchParams.get("email");
 
@@ -37,11 +38,10 @@ async function get_and_set_user_data_from_db() {
   let data1 = await res1.json();
 
   setup_data_on_page(data, data1);
-  css(qs_a("body")[0], { display: "inherit" });
+  css(qs_a(".content-container")[0], { display: "inherit" });
+  css(qs_a(".loader-container")[0], { display: "none" });
 }
 function setup_data_on_page(data, data1) {
-  console.log(data.data);
-
   if (data.data.my_quize_info) {
     let { total_question, total_correct_ans } = data.data.my_quize_info;
 
@@ -63,8 +63,6 @@ function setup_data_on_page(data, data1) {
     if (percent >= 90 && percent <= 100) {
       user_page_user_badge.innerHTML = `Gold`;
     }
-  } else {
-    css(quiz_dashboard_personal_row, { display: "none" });
   }
 
   if (data.data.my_info) {
@@ -96,12 +94,12 @@ function setup_data_on_page(data, data1) {
       .filter((itm) => itm != "-");
 
     let my_rank = rank_[0] + 1;
-    user_page_user_rank.innerHTML = my_rank;
+    data.data.my_quize_info && (user_page_user_rank.innerHTML = my_rank);
   }
 }
 //
 on(quiz_dashboard_nav_card_qz, "click", () => {
-  window.location.replace("./pages/Quiz/");
+  window.location.replace("./pages/quiz/");
 });
 on(quiz_dashboard_nav_card_lb, "click", () => {
   window.location.replace("./leaderboard.html");

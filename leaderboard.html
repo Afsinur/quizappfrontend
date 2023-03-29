@@ -34,249 +34,272 @@
     />
     <link href="app.css" rel="stylesheet" />
     <link rel="../icon" type="image/x-icon" href="#" />
+    <link rel="stylesheet" href="./css/loader.css" />
 
     <!--script-->
+    <script src="js/redirect.js"></script>
     <script
       type="module"
       src="./pages/leaderboard/leaderboard.js"
       defer
     ></script>
-    <script>
-      alert("Please wait page is loading..");
-    </script>
   </head>
 
-  <body class="app-leaderboard-page" style="display: none">
-    <header class="header-section-leaderboard">
-      <div class="left">
-        <h1 class="app-welcome-msg">
-          <button
-            style="font-size: 16px !important"
-            class="back-button-inside mi-ripple mi-ripple-dark"
-            onclick="window.location.replace(`./menu.html`)"
-          >
-            <i class="fa-regular fa-chevron-left"></i> Back
-          </button>
-        </h1>
+  <body class="app-leaderboard-page">
+    <div class="loader-container">
+      <div class="lds-roller">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
+    </div>
 
-      <span class="pppp">
-        <div class="right">
-          <span class="profile-pic-btn">
+    <div class="content-container" style="display: none">
+      <header class="header-section-leaderboard">
+        <div class="left">
+          <h1 class="app-welcome-msg">
+            <button
+              style="font-size: 16px !important"
+              class="back-button-inside mi-ripple mi-ripple-dark"
+              onclick="window.location.replace(`./menu.html`)"
+            >
+              <i class="fa-regular fa-chevron-left"></i> Back
+            </button>
+          </h1>
+        </div>
+
+        <span class="pppp">
+          <div class="right">
+            <span class="profile-pic-btn">
+              <img
+                src="https://t4.ftcdn.net/jpg/02/87/35/99/360_F_287359914_HU3P7rhmyJMyyhBBcILcWd2S7DDwkJSs.jpg"
+                width="50px"
+              />
+            </span>
+          </div>
+
+          <div class="right">
+            <span
+              class="dark-mode-btn js-toggle-theme mi-ripple mi-ripple-dark"
+            >
+              <span class="light"><i class="fa-light fa-lightbulb"></i></span
+              ><span class="dark"
+                ><i class="fa-light fa-lightbulb-slash"></i
+              ></span>
+            </span>
+          </div>
+        </span>
+
+        <br /><br /><br /><br /><br /><br />
+
+        <div class="leaderboard-top-ranker">
+          <div class="leaderboard-top-ranker-img bdr-ripple-ani-btn pink">
             <img
-              src="https://t4.ftcdn.net/jpg/02/87/35/99/360_F_287359914_HU3P7rhmyJMyyhBBcILcWd2S7DDwkJSs.jpg"
-              width="50px"
-            />
-          </span>
-        </div>
-
-        <div class="right">
-          <span class="dark-mode-btn js-toggle-theme mi-ripple mi-ripple-dark">
-            <span class="light"><i class="fa-light fa-lightbulb"></i></span
-            ><span class="dark"
-              ><i class="fa-light fa-lightbulb-slash"></i
-            ></span>
-          </span>
-        </div>
-      </span>
-
-      <br /><br /><br /><br /><br /><br />
-
-      <div class="leaderboard-top-ranker">
-        <div class="leaderboard-top-ranker-img bdr-ripple-ani-btn pink">
-          <img
-            class="trimg"
-            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjUUFPEBYfG3FbHc5ybm7uguXkgKAG4ZeGk_Zcci3emoPmj4b4sV4WG8O4ij8uCtlkgtAl900nVjAc-kB5ADZbo22nQWhpav8kpfUInAwk_epX5S5ZyctPsCAsF4FB7dkn1JajTkPEr0bZbm-ORwFXRknw-_L86_dUVI02WoLcOLea0mBz082g2nqHC/s712-rw/Ibrahim.jpeg"
-          />
-        </div>
-        <h3 class="leaderboard-top-ranker-name">ইব্রাহিম</h3>
-        <h6 class="leaderboard-top-ranker-clg">তেজগাও কলেজ</h6>
-        <h4 class="leaderboard-top-ranker-score">স্কোরঃ ২০</h4>
-        <h4 class="leaderboard-top-ranker-time">সময়ঃ <span>০৫ : ৪৮</span>s</h4>
-      </div>
-    </header>
-
-    <br /><br /><br /><br /><br /><br /><br />
-
-    <main class="quiz-main-dashboard-ldb">
-      <br /><br />
-      <input
-        id="leaderboard-list-filter"
-        type="text"
-        placeholder="একজন প্রতিযোগী খোঁজো..."
-        autocomplete="off"
-      />
-      <br /><br />
-      <p class="total-perticipant-num-div">
-        মোট প্রতিযোগীঃ <span id="total-perticipant-num"></span>
-      </p>
-      <br />
-
-      <section id="leaderboard-list">
-        <!--
-        <div class="leaderboard-list-div mi-ripple mi-ripple-dark">
-          <div class="ldb-sln"></div>
-          <div class="ldb-img">
-            <img
-              src="https://img.freepik.com/free-photo/smiling-young-pretty-woman-standing-isolated_171337-1998.jpg"
+              class="trimg"
+              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjUUFPEBYfG3FbHc5ybm7uguXkgKAG4ZeGk_Zcci3emoPmj4b4sV4WG8O4ij8uCtlkgtAl900nVjAc-kB5ADZbo22nQWhpav8kpfUInAwk_epX5S5ZyctPsCAsF4FB7dkn1JajTkPEr0bZbm-ORwFXRknw-_L86_dUVI02WoLcOLea0mBz082g2nqHC/s712-rw/Ibrahim.jpeg"
             />
           </div>
-          <div class="ldb-name-div">
-            <p class="ldb-name">আসমা বিনতে ইউনুস</p>
-            <p class="ldb-clg">বীরশ্রেষ্ট নূর মোহাম্মাদ পাবলিক কলেজ</p>
-          </div>
-          <div class="ldb-point-div">
-            <p class="ldb-point">19</p>
-            <p class="ldb-time">30:12</p>
-          </div>
+          <h3 class="leaderboard-top-ranker-name">ইব্রাহিম</h3>
+          <h6 class="leaderboard-top-ranker-clg">তেজগাও কলেজ</h6>
+          <h4 class="leaderboard-top-ranker-score">স্কোরঃ ২০</h4>
+          <h4 class="leaderboard-top-ranker-time">
+            সময়ঃ <span>০৫ : ৪৮</span>s
+          </h4>
         </div>
+      </header>
 
-        <div class="leaderboard-list-div mi-ripple mi-ripple-dark">
-          <div class="ldb-sln"></div>
-          <div class="ldb-img">
-            <img
-              src="https://img.freepik.com/premium-photo/young-handsome-man-with-beard-isolated-keeping-arms-crossed-frontal-position_1368-132662.jpg"
-            />
-          </div>
-          <div class="ldb-name-div">
-            <p class="ldb-name">হাবিবুর রহমান নাঈম</p>
-            <p class="ldb-clg">ধানমন্ডি গভঃ ল্যাবরেটরি হাই স্কুল</p>
-          </div>
-          <div class="ldb-point-div">
-            <p class="ldb-point">19</p>
-            <p class="ldb-time">30:55</p>
-          </div>
-        </div>
+      <br /><br /><br /><br /><br /><br /><br />
 
-        <div class="leaderboard-list-div mi-ripple mi-ripple-dark">
-          <div class="ldb-sln"></div>
-          <div class="ldb-img">
-            <img
-              src="https://img.freepik.com/free-photo/portrait-thoughtful-doctor-with-index-finger-his-chin-staring-into-distance_259150-57753.jpg"
-            />
-          </div>
-          <div class="ldb-name-div">
-            <p class="ldb-name">রোহান শেখ</p>
-            <p class="ldb-clg">
-              ইউনিভার্সিটি অব লিবারেল আর্টস বাংলাদেশ (ইউল্যাব)
-            </p>
-          </div>
-          <div class="ldb-point-div">
-            <p class="ldb-point">19</p>
-            <p class="ldb-time">44:42</p>
-          </div>
-        </div>
+      <main class="quiz-main-dashboard-ldb">
+        <br /><br />
+        <input
+          id="leaderboard-list-filter"
+          type="text"
+          placeholder="একজন প্রতিযোগী খোঁজো..."
+          autocomplete="off"
+        />
+        <br /><br />
+        <p class="total-perticipant-num-div">
+          মোট প্রতিযোগীঃ <span id="total-perticipant-num"></span>
+        </p>
+        <br />
 
-        <div class="leaderboard-list-div mi-ripple mi-ripple-dark">
-          <div class="ldb-sln"></div>
-          <div class="ldb-img">
-            <img
-              src="https://images.pexels.com/photos/8422449/pexels-photo-8422449.jpeg?auto=compress&cs=tinysrgb&w=1260"
-            />
+        <section id="leaderboard-list">
+          <!--
+          <div class="leaderboard-list-div mi-ripple mi-ripple-dark">
+            <div class="ldb-sln"></div>
+            <div class="ldb-img">
+              <img
+                src="https://img.freepik.com/free-photo/smiling-young-pretty-woman-standing-isolated_171337-1998.jpg"
+              />
+            </div>
+            <div class="ldb-name-div">
+              <p class="ldb-name">আসমা বিনতে ইউনুস</p>
+              <p class="ldb-clg">বীরশ্রেষ্ট নূর মোহাম্মাদ পাবলিক কলেজ</p>
+            </div>
+            <div class="ldb-point-div">
+              <p class="ldb-point">19</p>
+              <p class="ldb-time">30:12</p>
+            </div>
           </div>
-          <div class="ldb-name-div">
-            <p class="ldb-name">মোঃ আফসারউদ্দীন রাকিব</p>
-            <p class="ldb-clg">সোহরাওয়ার্দি কলেজ, ঢাকা</p>
+  
+          <div class="leaderboard-list-div mi-ripple mi-ripple-dark">
+            <div class="ldb-sln"></div>
+            <div class="ldb-img">
+              <img
+                src="https://img.freepik.com/premium-photo/young-handsome-man-with-beard-isolated-keeping-arms-crossed-frontal-position_1368-132662.jpg"
+              />
+            </div>
+            <div class="ldb-name-div">
+              <p class="ldb-name">হাবিবুর রহমান নাঈম</p>
+              <p class="ldb-clg">ধানমন্ডি গভঃ ল্যাবরেটরি হাই স্কুল</p>
+            </div>
+            <div class="ldb-point-div">
+              <p class="ldb-point">19</p>
+              <p class="ldb-time">30:55</p>
+            </div>
           </div>
-          <div class="ldb-point-div">
-            <p class="ldb-point">19</p>
-            <p class="ldb-time">53:10</p>
+  
+          <div class="leaderboard-list-div mi-ripple mi-ripple-dark">
+            <div class="ldb-sln"></div>
+            <div class="ldb-img">
+              <img
+                src="https://img.freepik.com/free-photo/portrait-thoughtful-doctor-with-index-finger-his-chin-staring-into-distance_259150-57753.jpg"
+              />
+            </div>
+            <div class="ldb-name-div">
+              <p class="ldb-name">রোহান শেখ</p>
+              <p class="ldb-clg">
+                ইউনিভার্সিটি অব লিবারেল আর্টস বাংলাদেশ (ইউল্যাব)
+              </p>
+            </div>
+            <div class="ldb-point-div">
+              <p class="ldb-point">19</p>
+              <p class="ldb-time">44:42</p>
+            </div>
           </div>
-        </div>
+  
+          <div class="leaderboard-list-div mi-ripple mi-ripple-dark">
+            <div class="ldb-sln"></div>
+            <div class="ldb-img">
+              <img
+                src="https://images.pexels.com/photos/8422449/pexels-photo-8422449.jpeg?auto=compress&cs=tinysrgb&w=1260"
+              />
+            </div>
+            <div class="ldb-name-div">
+              <p class="ldb-name">মোঃ আফসারউদ্দীন রাকিব</p>
+              <p class="ldb-clg">সোহরাওয়ার্দি কলেজ, ঢাকা</p>
+            </div>
+            <div class="ldb-point-div">
+              <p class="ldb-point">19</p>
+              <p class="ldb-time">53:10</p>
+            </div>
+          </div>
+  
+          <div class="leaderboard-list-div mi-ripple mi-ripple-dark">
+            <div class="ldb-sln"></div>
+            <div class="ldb-img">
+              <img
+                src="https://scontent.fdac110-1.fna.fbcdn.net/v/t39.30808-1/275614114_3095702027414040_879996855277629938_n.jpg?stp=dst-jpg_p100x100&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=dlbVTJZNJgMAX_3F9XU&tn=i_HN53orJ4MYileG&_nc_ht=scontent.fdac110-1.fna&oh=00_AfC59uEv3lTzEbQl_YN28IMCvhdXVb78gZAdHVoMwzVI8g&oe=63E8D94A"
+              />
+            </div>
+            <div class="ldb-name-div">
+              <p class="ldb-name">হাসিবুল হোসাইন</p>
+              <p class="ldb-clg">ধানমন্ডি আইডিয়াল</p>
+            </div>
+            <div class="ldb-point-div">
+              <p class="ldb-point">18</p>
+              <p class="ldb-time">25:51</p>
+            </div>
+          </div>
+  
+          <div class="leaderboard-list-div mi-ripple mi-ripple-dark">
+            <div class="ldb-sln"></div>
+            <div class="ldb-img">
+              <img
+                src="https://img.freepik.com/free-photo/portrait-fatty-bearded-male-hip-hop-clothes-baseball-cap-grey-background_613910-15613.jpg"
+              />
+            </div>
+            <div class="ldb-name-div">
+              <p class="ldb-name">আজমাইন জিদান</p>
+              <p class="ldb-clg">তেজগাও কলেজ</p>
+            </div>
+            <div class="ldb-point-div">
+              <p class="ldb-point">17</p>
+              <p class="ldb-time">05:52</p>
+            </div>
+          </div>
+  
+          <div class="leaderboard-list-div mi-ripple mi-ripple-dark">
+            <div class="ldb-sln"></div>
+            <div class="ldb-img">
+              <img
+                src="https://images.pexels.com/photos/9641058/pexels-photo-9641058.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750"
+              />
+            </div>
+            <div class="ldb-name-div">
+              <p class="ldb-name">সিনথিয়া সুমাইয়া</p>
+              <p class="ldb-clg">তেজগাও কলেজ</p>
+            </div>
+            <div class="ldb-point-div">
+              <p class="ldb-point">16</p>
+              <p class="ldb-time">16:42</p>
+            </div>
+          </div>
+  
+          <div class="leaderboard-list-div mi-ripple mi-ripple-dark">
+            <div class="ldb-sln"></div>
+            <div class="ldb-img">
+              <img
+                src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg"
+              />
+            </div>
+            <div class="ldb-name-div">
+              <p class="ldb-name">সাজেদ হাসান</p>
+              <p class="ldb-clg">তেজগাও কলেজ</p>
+            </div>
+            <div class="ldb-point-div">
+              <p class="ldb-point">15</p>
+              <p class="ldb-time">15:40</p>
+            </div>
+          </div>
+  
+          <div class="leaderboard-list-div mi-ripple mi-ripple-dark">
+            <div class="ldb-sln"></div>
+            <div class="ldb-img">
+              <img
+                src="https://img.freepik.com/free-photo/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair_285396-896.jpg"
+              />
+            </div>
+            <div class="ldb-name-div">
+              <p class="ldb-name">সুনিতা রোজারিও</p>
+              <p class="ldb-clg">তেজগাও কলেজ</p>
+            </div>
+            <div class="ldb-point-div">
+              <p class="ldb-point">15</p>
+              <p class="ldb-time">15:55</p>
+            </div>
+          </div>
+        --></section>
 
-        <div class="leaderboard-list-div mi-ripple mi-ripple-dark">
-          <div class="ldb-sln"></div>
-          <div class="ldb-img">
-            <img
-              src="https://scontent.fdac110-1.fna.fbcdn.net/v/t39.30808-1/275614114_3095702027414040_879996855277629938_n.jpg?stp=dst-jpg_p100x100&_nc_cat=109&ccb=1-7&_nc_sid=7206a8&_nc_ohc=dlbVTJZNJgMAX_3F9XU&tn=i_HN53orJ4MYileG&_nc_ht=scontent.fdac110-1.fna&oh=00_AfC59uEv3lTzEbQl_YN28IMCvhdXVb78gZAdHVoMwzVI8g&oe=63E8D94A"
-            />
-          </div>
-          <div class="ldb-name-div">
-            <p class="ldb-name">হাসিবুল হোসাইন</p>
-            <p class="ldb-clg">ধানমন্ডি আইডিয়াল</p>
-          </div>
-          <div class="ldb-point-div">
-            <p class="ldb-point">18</p>
-            <p class="ldb-time">25:51</p>
-          </div>
-        </div>
+        <br />
 
-        <div class="leaderboard-list-div mi-ripple mi-ripple-dark">
-          <div class="ldb-sln"></div>
-          <div class="ldb-img">
-            <img
-              src="https://img.freepik.com/free-photo/portrait-fatty-bearded-male-hip-hop-clothes-baseball-cap-grey-background_613910-15613.jpg"
-            />
-          </div>
-          <div class="ldb-name-div">
-            <p class="ldb-name">আজমাইন জিদান</p>
-            <p class="ldb-clg">তেজগাও কলেজ</p>
-          </div>
-          <div class="ldb-point-div">
-            <p class="ldb-point">17</p>
-            <p class="ldb-time">05:52</p>
-          </div>
-        </div>
+        <p>
+          বিঃদ্রঃ লিডারবোর্ড এর ডাটা প্রতি ১ মাস পরপর আপডেট হবে ও আগের মাসের
+          ডাটা রিমুভ হয়ে যাবে। আপনি চাইলে ডাটা পিডিএফ আকারে ডাউনলোড করে নিতে
+          পারবেন।
+        </p>
+      </main>
 
-        <div class="leaderboard-list-div mi-ripple mi-ripple-dark">
-          <div class="ldb-sln"></div>
-          <div class="ldb-img">
-            <img
-              src="https://images.pexels.com/photos/9641058/pexels-photo-9641058.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750"
-            />
-          </div>
-          <div class="ldb-name-div">
-            <p class="ldb-name">সিনথিয়া সুমাইয়া</p>
-            <p class="ldb-clg">তেজগাও কলেজ</p>
-          </div>
-          <div class="ldb-point-div">
-            <p class="ldb-point">16</p>
-            <p class="ldb-time">16:42</p>
-          </div>
-        </div>
+      <div id="app-bottom-navigation-bar"></div>
 
-        <div class="leaderboard-list-div mi-ripple mi-ripple-dark">
-          <div class="ldb-sln"></div>
-          <div class="ldb-img">
-            <img
-              src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg"
-            />
-          </div>
-          <div class="ldb-name-div">
-            <p class="ldb-name">সাজেদ হাসান</p>
-            <p class="ldb-clg">তেজগাও কলেজ</p>
-          </div>
-          <div class="ldb-point-div">
-            <p class="ldb-point">15</p>
-            <p class="ldb-time">15:40</p>
-          </div>
-        </div>
-
-        <div class="leaderboard-list-div mi-ripple mi-ripple-dark">
-          <div class="ldb-sln"></div>
-          <div class="ldb-img">
-            <img
-              src="https://img.freepik.com/free-photo/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair_285396-896.jpg"
-            />
-          </div>
-          <div class="ldb-name-div">
-            <p class="ldb-name">সুনিতা রোজারিও</p>
-            <p class="ldb-clg">তেজগাও কলেজ</p>
-          </div>
-          <div class="ldb-point-div">
-            <p class="ldb-point">15</p>
-            <p class="ldb-time">15:55</p>
-          </div>
-        </div>
-      --></section>
-
-      <br />
-
-      <p>
-        বিঃদ্রঃ লিডারবোর্ড এর ডাটা প্রতি ১ মাস পরপর আপডেট হবে ও আগের মাসের ডাটা
-        রিমুভ হয়ে যাবে। আপনি চাইলে ডাটা পিডিএফ আকারে ডাউনলোড করে নিতে পারবেন।
-      </p>
-    </main>
+      <br /><br /><br /><br />
+    </div>
 
     <script>
       $(function () {
@@ -311,9 +334,6 @@
         ttl_perticipants.length.toLocaleString("bn-BD");
     </script>
 
-    <div id="app-bottom-navigation-bar"></div>
-
-    <br /><br /><br /><br />
     <script type="text/javascript" src="app.js"></script>
   </body>
 </html>

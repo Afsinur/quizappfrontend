@@ -1,7 +1,7 @@
 let db_uri = "https://quizappapi.onrender.com/api"; //
 let localStorage_email_key = "ibrahim_quiz_user_email";
 
-import selectors from "../Quiz/js/selectors.js";
+import selectors from "../quiz/js/selectors.js";
 let { qs_a, css, on } = selectors;
 //
 let trimg_ = qs_a(".profile-pic-btn > img")[0];
@@ -47,7 +47,8 @@ async function get_and_set_user_data_from_db() {
   let data1 = await res1.json();
 
   setup_data_on_page(data, data1);
-  css(qs_a("body")[0], { display: "inherit" });
+  css(qs_a(".content-container")[0], { display: "inherit" });
+  css(qs_a(".loader-container")[0], { display: "none" });
 }
 function setup_data_on_page(data, data1) {
   console.log(data.data, data1.data);

@@ -1,3 +1,4 @@
+let showCoffees = null;
 /*
   |--------------------------------------------------------------------------
   | Assalamu Alaikum
@@ -198,7 +199,12 @@ userdiv.style.backgroundImage = `linear-gradient(rgba(10,10,10, 0.4), rgba(10,10
 
 const container = document.querySelector(".container");
 
-document.addEventListener("DOMContentLoaded", showCoffees);
+showCoffees && cofeeThing();
+
+function cofeeThing() {
+  document.addEventListener("DOMContentLoaded", showCoffees);
+}
+
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function () {
     navigator.serviceWorker

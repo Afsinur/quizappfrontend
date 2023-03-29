@@ -1,13 +1,15 @@
 let db_uri = "https://quizappapi.onrender.com/api";
 let redirect_link = "./dashboard.html";
 
-import selectors from "../Quiz/js/selectors.js";
+import selectors from "../quiz/js/selectors.js";
 let { qs_a, on } = selectors;
 
 let login_form = qs_a(".login-form")[0];
+
 //
 on(login_form, "submit", async (e) => {
   e.preventDefault();
+  login_form.loginMe.children[0].innerHTML = "logging in..";
 
   let email = e.target.email.value;
   let password = e.target.password.value;

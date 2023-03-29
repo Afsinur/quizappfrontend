@@ -1,5 +1,6 @@
 let db_uri = "https://quizappapi.onrender.com/api";
 let localStorage_email_key = "ibrahim_quiz_user_email";
+let localStorage_weekInfo_key = "ibrahim_quiz_user_weekInfo";
 
 import selectors from "./selectors.js";
 let { qs_a, css, mk_arr, on } = selectors;
@@ -80,7 +81,6 @@ let more_than_one_played = false;
 
 let ref_play_max_time = null;
 let play_max_time = null;
-let game_timer_interval = null;
 let game_timer_interval_time = 10;
 let add_minus_by = 0.01;
 let puse_game = false;
@@ -92,7 +92,15 @@ let show_result_position = 0;
 
 let preview_run_init = false;
 
+let randomArr = [0, 3, 2, 4, 1];
+let maxWeekLimitTimeInMinits = 10080;
+let maxCanPlay = 3;
+
 //functions
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
 function setup_li_events(lists, question_no) {
   mk_arr(lists).forEach((li) => {
     on(li, "click", (e) => {
@@ -115,14 +123,18 @@ function setup_li_events(lists, question_no) {
 }
 
 function setup_question(qsn_pos) {
-  let current_qsn = game_array[qsn_pos]["question"];
+  let randomPosition = randomArr[qsn_pos];
+
+  let current_qsn = game_array[randomPosition]["question"];
   qsn_div.innerHTML = current_qsn;
 }
 
 function setup_options(ul, preview, current_pos) {
   reset_ul();
 
-  let current_obj = game_array[current_pos];
+  let randomPosition = randomArr[current_pos];
+
+  let current_obj = game_array[randomPosition];
 
   let filter = Object.keys(current_obj).filter(
     (itm) => itm !== `question` && itm !== `answer`
@@ -133,7 +145,7 @@ function setup_options(ul, preview, current_pos) {
     ul.innerHTML += `<li data-answer="${i + 1}">${el}</li>`;
   }
 
-  !preview && setup_li_events(ul.children, current_pos);
+  !preview && setup_li_events(ul.children, randomPosition);
 }
 
 function check_game_status_and_update() {
@@ -224,6 +236,7 @@ async function get_game_data() {
   ref_play_max_time = data.time / 1000; //convert into seconds
 
   show_animation();
+  randomArr = setup_random_arr(game_array.length);
   show_game();
 }
 
@@ -245,9 +258,9 @@ async function setup_notification_div() {
   total_question.innerHTML = game_array.length;
 
   let answers = game_array.map((itm) => itm.answer);
-  let answer_played = putted_answer_array.filter(
-    (itm, i) => itm.ans === answers[i]
-  );
+  let answer_played = putted_answer_array
+    .sort((a, b) => a.qsn - b.qsn)
+    .filter((itm, i) => itm.ans === answers[i]);
 
   total_correct_ans.innerHTML = answer_played.length;
   let times = (count_played_time - add_minus_by).toFixed(to_fixed);
@@ -263,6 +276,38 @@ async function setup_notification_div() {
     when_updating_db_hide.forEach((itm) => css(itm, { display: "none" }));
     when_updating_db_show.forEach((itm) => css(itm, { display: "inherit" }));
 
+    const weeklyGameInfo = new Promise((resolve, reject) => {
+      let info = localStorage.getItem(localStorage_weekInfo_key);
+
+      if (info) {
+        let obj = JSON.parse(localStorage.getItem(localStorage_weekInfo_key));
+        let playedEdited = obj.played;
+        playedEdited++;
+
+        localStorage.setItem(
+          localStorage_weekInfo_key,
+          JSON.stringify({
+            date: obj.date,
+            played: playedEdited,
+          })
+        );
+
+        resolve(JSON.parse(localStorage.getItem(localStorage_weekInfo_key)));
+      } else {
+        localStorage.setItem(
+          localStorage_weekInfo_key,
+          JSON.stringify({
+            date: new Date().getTime(),
+            played: 1,
+          })
+        );
+
+        resolve(JSON.parse(localStorage.getItem(localStorage_weekInfo_key)));
+      }
+    });
+
+    await weeklyGameInfo;
+
     await send_data_to_db(data_);
   }
 }
@@ -273,7 +318,7 @@ function start_timer() {
   time_div.innerHTML = `${play_max_time}s`;
 
   if (!more_than_one_played) {
-    game_timer_interval = setInterval(() => {
+    setInterval(() => {
       if (play_max_time >= -add_minus_by) {
         !puse_game && (count_played_time += add_minus_by);
 
@@ -324,10 +369,12 @@ function setup_finish_btn() {
 }
 
 function setup_replay_btn() {
-  on(btn_replay, "click", () => {
+  on(btn_replay, "click", async () => {
+    await checkForLimit();
     reset_vars();
 
     show_animation();
+    randomArr = setup_random_arr(game_array.length);
     show_game();
   });
 }
@@ -347,13 +394,13 @@ function reset_vars() {
 }
 
 function show_results_and_putted_one(my_ans_arr, pos) {
-  console.log(my_ans_arr, pos);
+  let randomPos = randomArr[pos];
 
-  let { ans } = my_ans_arr[pos];
-  let { answer } = game_array[pos];
+  let { ans } = my_ans_arr.sort((a, b) => a.qsn - b.qsn)[randomPos];
+  let { answer } = game_array[randomPos];
 
   setup_question(pos);
-  setup_options(options_ul, true, show_result_position);
+  setup_options(options_ul, true, pos);
 
   mk_arr(options_ul.children).forEach((child, i) => {
     if (i + 1 === Number(ans)) {
@@ -453,6 +500,73 @@ function get_user_email() {
   return email;
 }
 
+function setup_random_arr(len) {
+  let numbers = []; // new empty array
+
+  let count = 0;
+
+  function setInterval() {
+    if (numbers.length < len) {
+      let num = getRandomInt(len);
+
+      if (!numbers.includes(num)) {
+        numbers.push(num);
+      }
+      count++;
+
+      setInterval();
+    } else {
+      console.log(numbers);
+    }
+  }
+  setInterval();
+
+  return numbers;
+}
+
+async function checkForLimit() {
+  const getWeeklyGameInfo = new Promise((resolve, reject) => {
+    let item = localStorage.getItem(localStorage_weekInfo_key);
+
+    item &&
+      resolve(
+        JSON.parse(localStorage.getItem(localStorage_weekInfo_key)).played
+      );
+    item === null && resolve(0);
+  });
+
+  let totalPlayed = await getWeeklyGameInfo;
+
+  totalPlayed >= maxCanPlay && resetWeeklyInfo();
+}
+
+function resetWeeklyInfo() {
+  let obj = JSON.parse(localStorage.getItem(localStorage_weekInfo_key));
+
+  let subMiliSecs = Math.abs(new Date().getTime() - obj.date);
+  let subSecs = subMiliSecs / 1000;
+  let subMinit = subSecs / 60;
+
+  if (subMinit < maxWeekLimitTimeInMinits) {
+    alert(
+      `you have reached the weekly playing qiuz limit! [ ${maxCanPlay} times per week ]`
+    );
+    css(qs_a(".btn-start")[0], { display: "none" });
+    window.location.replace("/dashboard.html");
+  } else {
+    localStorage.setItem(
+      localStorage_weekInfo_key,
+      JSON.stringify({
+        date: new Date().getTime(),
+        played: 0,
+      })
+    );
+  }
+}
+
 //init
+(async () => {
+  await checkForLimit();
+})();
 setup_init_show();
 setup_board_btn();

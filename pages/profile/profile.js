@@ -1,8 +1,8 @@
 let db_uri = "https://quizappapi.onrender.com/api";
 let localStorage_email_key = "ibrahim_quiz_user_email";
 
-import selectors from "../Quiz/js/selectors.js";
-let { qs_a, css, on } = selectors;
+import selectors from "../quiz/js/selectors.js";
+let { qs_a, css, on, set_attr } = selectors;
 //
 let three_class_section = qs_a(".three-class-section")[0];
 let user_profile_box_name = qs_a(".user-profile-box-name")[0];
@@ -31,15 +31,17 @@ async function get_and_set_user_data_from_db() {
   let res = await fetch(`${db_uri}/data/${email}`);
   let data = await res.json();
 
+  set_attr(qs_a(".del-me")[0], "data-id-one", data.data.my_info.email);
+  set_attr(qs_a(".del-me")[0], "data-id-two", data.data.my_info.password);
+
   let res1 = await fetch(`${db_uri}/data/leadersboard`);
   let data1 = await res1.json();
 
   setup_data_on_page(data, data1);
-  css(qs_a("body")[0], { display: "inherit" });
+  css(qs_a(".content-container")[0], { display: "inherit" });
+  css(qs_a(".loader-container")[0], { display: "none" });
 }
 function setup_data_on_page(data, data1) {
-  console.log(data.data);
-
   if (data.data.my_quize_info) {
     let { total_question, total_correct_ans } = data.data.my_quize_info;
 
@@ -61,8 +63,6 @@ function setup_data_on_page(data, data1) {
     if (percent >= 90 && percent <= 100) {
       user_page_user_badge.innerHTML = `Gold`;
     }
-  } else {
-    css(three_class_section, { display: "none" });
   }
 
   if (data.data.my_info) {
@@ -119,8 +119,46 @@ function setup_data_on_page(data, data1) {
       .filter((itm) => itm != "-");
 
     let my_rank = rank_[0] + 1;
-    user_page_user_rank.innerHTML = my_rank;
+    data.data.my_quize_info && (user_page_user_rank.innerHTML = my_rank);
   }
 }
 //
 await get_and_set_user_data_from_db();
+
+on(qs_a(".modal-btn")[0], "click", () => {
+  let modal = qs_a(".modal-edit")[0];
+
+  // Get the computed styles of the element
+  let computedStyles = window.getComputedStyle(modal);
+
+  if (computedStyles.display === "none") {
+    css(modal, { display: "grid" });
+  } else {
+    css(modal, { display: "none" });
+  }
+});
+
+on(qs_a(".del-me")[0], "click", async (e) => {
+  qs_a(".del-me")[0].innerText = "deleting..";
+
+  let { idOne, idTwo } = e.target.dataset;
+  let res = await fetch(`${db_uri}/delete/${idOne}/${idTwo}`);
+  let data = await res.json();
+
+  if (data.done) {
+    window.location.replace("./dashboard.html?logout=true");
+  }
+});
+
+on(qs_a(".close-modal")[0], "click", (e) => {
+  let modal = qs_a(".modal-edit")[0];
+
+  // Get the computed styles of the element
+  let computedStyles = window.getComputedStyle(modal);
+
+  if (computedStyles.display === "none") {
+    css(modal, { display: "grid" });
+  } else {
+    css(modal, { display: "none" });
+  }
+});

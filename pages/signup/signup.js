@@ -1,7 +1,7 @@
 let db_uri = "https://quizappapi.onrender.com/api";
 let redirect_link = "./dashboard.html";
 //
-import selectors from "../Quiz/js/selectors.js";
+import selectors from "../quiz/js/selectors.js";
 let { qs_a, mk, on } = selectors;
 //
 let signup_form = qs_a("#signup-form")[0];
@@ -61,6 +61,7 @@ async function resizeMe(img) {
 
 on(signup_form, "submit", async (e) => {
   e.preventDefault();
+  signup_form.loginMe.children[0].innerHTML = "signning up..";
 
   let fullname = e.target.fullname.value;
   let batchname = e.target.batchname.value;
