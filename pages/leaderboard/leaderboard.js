@@ -1,4 +1,4 @@
-let db_uri = "https://quizappapi.onrender.com/api"; //
+let db_uri = "https://quizappapi.onrender.com/api"; //"https://quizappapi.onrender.com/api"; //
 let localStorage_email_key = "ibrahim_quiz_user_email";
 
 import selectors from "../quiz/js/selectors.js";
@@ -51,8 +51,6 @@ async function get_and_set_user_data_from_db() {
   css(qs_a(".loader-container")[0], { display: "none" });
 }
 function setup_data_on_page(data, data1) {
-  console.log(data.data, data1.data);
-
   if (data.data.my_info) {
     let { img_file } = data.data.my_info;
 

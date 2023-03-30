@@ -31,17 +31,20 @@ async function get_and_set_user_data_from_db() {
   let res = await fetch(`${db_uri}/data/${email}`);
   let data = await res.json();
 
+  setup_data_on_page(data);
+
   set_attr(qs_a(".del-me")[0], "data-id-one", data.data.my_info.email);
   set_attr(qs_a(".del-me")[0], "data-id-two", data.data.my_info.password);
+
+  css(qs_a(".content-container")[0], { display: "inherit" });
+  css(qs_a(".loader-container")[0], { display: "none" });
 
   let res1 = await fetch(`${db_uri}/data/leadersboard`);
   let data1 = await res1.json();
 
-  setup_data_on_page(data, data1);
-  css(qs_a(".content-container")[0], { display: "inherit" });
-  css(qs_a(".loader-container")[0], { display: "none" });
+  setup_data_on_page_again(data1);
 }
-function setup_data_on_page(data, data1) {
+function setup_data_on_page(data) {
   if (data.data.my_quize_info) {
     let { total_question, total_correct_ans } = data.data.my_quize_info;
 
@@ -63,6 +66,9 @@ function setup_data_on_page(data, data1) {
     if (percent >= 90 && percent <= 100) {
       user_page_user_badge.innerHTML = `Gold`;
     }
+  } else {
+    user_page_user_points.innerHTML = `NaN`;
+    user_page_user_badge.innerHTML = `NaN`;
   }
 
   if (data.data.my_info) {
@@ -96,7 +102,8 @@ function setup_data_on_page(data, data1) {
     db_email.innerHTML = email;
     db_password.innerHTML = password;
   }
-
+}
+function setup_data_on_page_again(data1) {
   if (data1.data) {
     let data_arr = data1.data;
 
@@ -119,7 +126,7 @@ function setup_data_on_page(data, data1) {
       .filter((itm) => itm != "-");
 
     let my_rank = rank_[0] + 1;
-    data.data.my_quize_info && (user_page_user_rank.innerHTML = my_rank);
+    user_page_user_rank.innerHTML = my_rank;
   }
 }
 //
